@@ -9,7 +9,6 @@ body {
   width: 20%;
   margin-left: auto;
   margin-right: auto;
-  margin: auto;
   margin-top: 100px;
   border: 2px solid black;
   padding: 10px;
@@ -18,9 +17,10 @@ body {
 }
 .main #screen {
   height: 45px;
+  width:95%;
   background: rgb(188, 189, 125);
   padding: 3px 5px;
-  font-size: 25px;
+  font-size: 35px;
   font-family: digital;
 }
 #one,
@@ -52,107 +52,47 @@ body {
 #equal {
   width: 120px;
 }
-@media (max-width: 768px) {
+@media (max-width:768px){
   body {
     font-size: 16px;
     overflow-y: hidden;
     overflow-x: hidden;
     height: 100%;
+    position: static;
   }
   .main {
-    left: 0;
-    right: 0;
-    width: 285px;
-    margin: auto;
+    margin-left:auto;
+    margin-right:auto;
+    width:300px;
   }
   .main #screen {
     height: 35px;
     background: rgb(188, 189, 125);
     padding: 3px 5px;
-    font-size: 20px;
+    font-size: 30px;
     font-family: digital;
-    width: 90%;
-  }
-  #one,
-  #two,
-  #three,
-  #four,
-  #five,
-  #six,
-  #seven,
-  #eight,
-  #nine,
-  #zero,
-  #dot,
-  #plus,
-  #minus,
-  #multiply,
-  #divide,
-  #modulo,
-  #clear,
-  #delete,
-  #equal {
-    width: 55px;
-    height: 26px;
-    font-weight: bold;
-    font-size: 18px;
-    font-family: Helvetica, sans-serif;
-    cursor: pointer;
-  }
-  #equal {
-    width: 130px;
+    width:90%;
   }
 }
-@media (min-width: 768px) {
-  body {
-    font-size: 16px;
-    overflow-y: hidden;
-    overflow-x: hidden;
-    height: 100%;
-  }
-  .main {
-    left: 0;
-    right: 0;
-    width: 330px;
-    margin-left: auto;
-    margin-right: auto;
-    margin: auto;
-  }
-  .main #screen {
-    height: 35px;
-    background: rgb(188, 189, 125);
-    padding: 3px 5px;
-    font-size: 20px;
-    font-family: digital;
-    width: 90%;
-  }
-  #one,
-  #two,
-  #three,
-  #four,
-  #five,
-  #six,
-  #seven,
-  #eight,
-  #nine,
-  #zero,
-  #dot,
-  #plus,
-  #minus,
-  #multiply,
-  #divide,
-  #modulo,
-  #clear,
-  #delete,
-  #equal {
-    width: 60px;
-    height: 30px;
-    font-weight: bold;
-    font-size: 18px;
-    font-family: Helvetica, sans-serif;
-    cursor: pointer;
-  }
-  #equal {
-    width: 140px;
-  }
-}
+@media (min-width:768px) and (max-width:1340px) {
+    body {
+      font-size: 16px;
+      overflow-y: hidden;
+      overflow-x: hidden;
+      height: 100%;
+      position: static;
+    }
+    .main {
+      margin-left:auto;
+      margin-right:auto;
+      width:300px;
+    }
+    .main #screen {
+      height: 35px;
+      background: rgb(188, 189, 125);
+      padding: 3px 5px;
+      font-size: 30px;
+      font-family: digital;
+      width:90%;
+    }
+} 
