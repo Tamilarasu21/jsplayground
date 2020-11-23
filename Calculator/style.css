@@ -1,0 +1,158 @@
+@font-face {
+  font-family: digital;
+  src: url(fonts/DS-DIGIT.TTF);
+}
+body {
+  position: static;
+}
+.main {
+  width: 20%;
+  margin-left: auto;
+  margin-right: auto;
+  margin: auto;
+  margin-top: 100px;
+  border: 2px solid black;
+  padding: 10px;
+  background: rgb(75, 71, 71);
+  border-radius: 3px;
+}
+.main #screen {
+  height: 45px;
+  background: rgb(188, 189, 125);
+  padding: 3px 5px;
+  font-size: 25px;
+  font-family: digital;
+}
+#one,
+#two,
+#three,
+#four,
+#five,
+#six,
+#seven,
+#eight,
+#nine,
+#zero,
+#dot,
+#plus,
+#minus,
+#multiply,
+#divide,
+#modulo,
+#clear,
+#delete,
+#equal {
+  width: 50px;
+  height: 30px;
+  font-weight: bold;
+  font-size: 16px;
+  font-family: Helvetica, sans-serif;
+  cursor: pointer;
+}
+#equal {
+  width: 120px;
+}
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    height: 100%;
+  }
+  .main {
+    left: 0;
+    right: 0;
+    width: 285px;
+    margin: auto;
+  }
+  .main #screen {
+    height: 35px;
+    background: rgb(188, 189, 125);
+    padding: 3px 5px;
+    font-size: 20px;
+    font-family: digital;
+    width: 90%;
+  }
+  #one,
+  #two,
+  #three,
+  #four,
+  #five,
+  #six,
+  #seven,
+  #eight,
+  #nine,
+  #zero,
+  #dot,
+  #plus,
+  #minus,
+  #multiply,
+  #divide,
+  #modulo,
+  #clear,
+  #delete,
+  #equal {
+    width: 55px;
+    height: 26px;
+    font-weight: bold;
+    font-size: 18px;
+    font-family: Helvetica, sans-serif;
+    cursor: pointer;
+  }
+  #equal {
+    width: 130px;
+  }
+}
+@media (min-width: 768px) {
+  body {
+    font-size: 16px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    height: 100%;
+  }
+  .main {
+    left: 0;
+    right: 0;
+    width: 330px;
+    margin-left: auto;
+    margin-right: auto;
+    margin: auto;
+  }
+  .main #screen {
+    height: 35px;
+    background: rgb(188, 189, 125);
+    padding: 3px 5px;
+    font-size: 20px;
+    font-family: digital;
+    width: 90%;
+  }
+  #one,
+  #two,
+  #three,
+  #four,
+  #five,
+  #six,
+  #seven,
+  #eight,
+  #nine,
+  #zero,
+  #dot,
+  #plus,
+  #minus,
+  #multiply,
+  #divide,
+  #modulo,
+  #clear,
+  #delete,
+  #equal {
+    width: 60px;
+    height: 30px;
+    font-weight: bold;
+    font-size: 18px;
+    font-family: Helvetica, sans-serif;
+    cursor: pointer;
+  }
+  #equal {
+    width: 140px;
+  }
+}

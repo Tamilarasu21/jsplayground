@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Tamilarasu A" />
+    <title>GST Calculator</title>
+    <style>
+        input::-webkit-inner-spin-button,
+        input::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+        }
+        input[type="number"] {
+            -moz-appearance: none;
+            width:130px;
+            height:20px;
+            padding:3px 5px;
+        }
+        input[type="number"]:disabled{
+            background:white;
+            width:130px;
+            height:20px;
+            padding:3px 5px;
+        }
+        .main
+        {
+            width:20%;
+            margin:auto;
+            text-align:center;
+            border:2px solid gray;
+            padding:10px;
+            background:lightblue;
+        }
+        @media (max-width:768px)
+        {
+            body{
+                background:lightgray;
+            }
+            .main{
+                width:200px;
+                margin:auto;
+                border:none;
+                background:lightgray;
+            }
+            input[type=submit],button[type=button]
+            {
+                background:blue;
+                color:white;
+                border:none;
+                height:30px;
+            }
+        }
+        .main p{
+            font-family:'Courier New', Courier, monospace;
+            color:green;
+            font-weight:600;
+            font-size:large;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <p>GST Calculator</p>
+            <input type="number" placeholder="Number of Products" id="numOfProduct"><br><br>
+            <input type="number" placeholder="Price of Product" id="amountOfProduct"><br><br>
+            <input type="submit" value="Calculate" onclick="gstCalc()"><br><br>
+            <input type="number" id="total" placeholder="Total" disabled><br><br>
+            <input type="number" id="CGST" placeholder="CGST" disabled><br><br>
+            <input type="number" id="SGST" placeholder="SGST" disabled><br><br>
+            <input type="number" id="TWGST" placeholder="TWGST" disabled><br><br>
+            <button type="button" onclick="location.reload()">reset</button>
+    </div>
+    
+    <script>
+        function gstCalc(){
+            var num=document.getElementById("numOfProduct").value;
+            var amount=document.getElementById("amountOfProduct").value;
+            var answer=num*amount;
+            document.getElementById("total").value=answer;
+            var cgst=answer*(2.5/100).toFixed(2);
+            document.getElementById("CGST").value=cgst;
+            var sgst=answer*(2.5/100).toFixed(2);
+            document.getElementById("SGST").value=sgst;
+            var twgst=answer+(cgst+sgst).toFixed(2);
+            document.getElementById("TWGST").value=twgst;
+        }
+    </script>
+</body>
+
+</html>
