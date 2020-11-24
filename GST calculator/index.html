@@ -102,7 +102,7 @@
             document.getElementById("CGST").value = cgst.toFixed(2);
             var sgst = answer * (2.5 / 100);
             document.getElementById("SGST").value = sgst.toFixed(2);
-            var twgst = answer + cgst + sgst;
+            var twgst = parseInt(answer) + parseInt(cgst) + parseInt(sgst);
             document.getElementById("TWGST").value = twgst.toFixed(2);
         }
     </script>
