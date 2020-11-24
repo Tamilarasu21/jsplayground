@@ -12,37 +12,40 @@
             -webkit-appearance: none;
         }
         input[type="number"] {
-            -moz-appearance: none;
+            -moz-appearance: textfield;
             width:130px;
             height:20px;
             padding:3px 5px;
+            border:1px solid black;
         }
         input[type="number"]:disabled{
             background:white;
             width:130px;
             height:20px;
             padding:3px 5px;
+            border:1px solid black;
+            color:darkblue;
         }
         .main
         {
-            width:200px;
-            margin:auto;
+            width:300px;
+            margin:70px auto;
             text-align:center;
             border:2px solid gray;
             padding:10px;
             background:lightblue;
             justify-content: center;
         }
-        /* @media (max-width:768px)
+        @media (max-width:768px)
         {
             body{
-                background:lightgray;
+                background:lightblue;
             }
             .main{
                 width:200px;
                 margin:auto;
                 border:none;
-                background:lightgray;
+                padding:50px;
             }
             input[type=submit],button[type=button]
             {
@@ -51,12 +54,20 @@
                 border:none;
                 height:30px;
             }
-        } */
+        }
         .main p{
             font-family:'Courier New', Courier, monospace;
             color:green;
             font-weight:600;
             font-size:large;
+        }
+        label
+        {
+            font-size:16px;
+            background:lightgray;
+            padding:5px;
+            margin-left:3px;
+            border:1px solid black;
         }
     </style>
 </head>
@@ -64,14 +75,14 @@
 <body>
     <div class="main">
         <p>GST Calculator</p>
-            <input type="number" placeholder="Number of Products" id="numOfProduct"><br><br>
-            <input type="number" placeholder="Price of Product" id="amountOfProduct"><br><br>
+            <label for="numOfProduct">N </label><input type="number" placeholder="Number of Products" id="numOfProduct"><br><br>
+            <label for="amountOfProduct">&#8377; </label><input type="number" placeholder="Price of Product" id="amountOfProduct"><br><br>
             <input type="submit" value="Calculate" onclick="gstCalc()"><br><br>
-            <input type="number" id="total" placeholder="Total" disabled><br><br>
-            <input type="number" id="CGST" placeholder="CGST" disabled><br><br>
-            <input type="number" id="SGST" placeholder="SGST" disabled><br><br>
-            <input type="number" id="TWGST" placeholder="TWGST" disabled><br><br>
-            <button type="button" onclick="location.reload()">reset</button>
+            <label for="total">&#8377; </label><input type="number" id="total" placeholder="Total" disabled><br><br>
+            <label for="CGST">&#8377; </label><input type="number" id="CGST" placeholder="CGST" disabled><br><br>
+            <label for="SGST">&#8377; </label><input type="number" id="SGST" placeholder="SGST" disabled><br><br>
+            <label for="TWGST">&#8377; </label><input type="number" id="TWGST" placeholder="TWGST" disabled><br><br>
+            <button type="button" onclick="location.reload(true)">reset</button>
     </div>
     
     <script>
@@ -79,13 +90,13 @@
             var num=document.getElementById("numOfProduct").value;
             var amount=document.getElementById("amountOfProduct").value;
             var answer=num*amount;
-            document.getElementById("total").value=answer;
-            var cgst=answer*(2.5/100).toFixed(2);
-            document.getElementById("CGST").value=cgst;
-            var sgst=answer*(2.5/100).toFixed(2);
-            document.getElementById("SGST").value=sgst;
-            var twgst=answer+(cgst+sgst).toFixed(2);
-            document.getElementById("TWGST").value=twgst;
+            document.getElementById("total").value=answer.toFixed(2);
+            var cgst=answer*(2.5/100);
+            document.getElementById("CGST").value=cgst.toFixed(2);
+            var sgst=answer*(2.5/100);
+            document.getElementById("SGST").value=sgst.toFixed(2);
+            var twgst=answer+cgst+sgst;
+            document.getElementById("TWGST").value=twgst.toFixed(2);
         }
     </script>
 </body>
