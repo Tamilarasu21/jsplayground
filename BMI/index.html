@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Body Mass Index Calculator</title>
+</head>
+
+<body>
+    <div class="center" style="margin:0 400px 0 400px;padding:100px;">
+        <center>
+            <font face="Verdana">
+                <h2>BMI Calculator</h2>
+                <input type="text" name="mass" id="mass" placeholder="Weight in KG" inputmode="numeric" required
+                    title="Must be in Kilograms">
+                <p><input type="text" name="height" id="height" placeholder="Height in metres" inputmode="numeric"
+                        required title="Must be in metres"></p>
+                <p><input type="submit" value="Find" name="find" onclick="bmiCalc();"></p>
+                <p id="res"></p>
+                <h1 id="comment"></h1>
+            </font>
+        </center>
+    </div>
+    <script>
+        function bmiCalc() {
+            var mass = document.getElementById("mass").value;
+            var height = document.getElementById("height").value;
+            var result = mass / (height * height);
+            document.getElementById("res").innerHTML = "Your Body Mass Index is <b>" + result.toFixed(1)+ "</b>";
+            if (result <= 18.5) {
+                document.getElementById("comment").innerHTML= "LEAN";
+            } else if (result > 18.5 && result < 24.9) {
+                document.getElementById("comment").innerHTML= "NORMAL";
+            } else if (result > 25 && result < 29.9) {
+                document.getElementById("comment").innerHTML= "OVERWEIGHT";
+            }
+            else {
+                document.getElementById("comment").innerHTML= "OBESE";
+            }
+        }
+    </script>
+</body>
+
+</html>
