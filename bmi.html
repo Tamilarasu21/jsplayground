@@ -8,20 +8,18 @@
 </head>
 
 <body>
-    <div class="center" style="margin:0 400px 0 400px;padding:100px;">
-        <center>
-            <font face="Verdana">
-                <h2 style="color:darkblue">BMI Calculator</h2>
-                <input type="text" name="mass" id="mass" placeholder="Weight in KG" inputmode="numeric" required
-                    title="Must be in Kilograms">
-                <p><input type="text" name="height" id="height" placeholder="Height in metres" inputmode="numeric"
-                        required title="Must be in metres"></p>
-                <p><input type="submit" value="Find" name="find" onclick="bmiCalc();"></p>
-                <p id="res"></p>
-                <h1 id="comment"></h1>
-            </font>
-        </center>
-    </div>
+    <center>
+        <font face="Verdana">
+            <h2 style="color:darkblue">BMI Calculator</h2>
+            <input type="text" name="mass" id="mass" placeholder="Weight in KG" inputmode="numeric" required
+                title="Must be in Kilograms">
+            <p><input type="text" name="height" id="height" placeholder="Height in metres" inputmode="numeric"
+                    required title="Must be in metres"></p>
+            <p><input type="submit" value="Find" name="find" onclick="bmiCalc();"></p>
+            <p id="res"></p>
+            <h1 id="comment"></h1>
+        </font>
+    </center>
     <script>
         function bmiCalc() {
             var mass = document.getElementById("mass").value;
