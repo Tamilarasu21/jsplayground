@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Calculator</title>
+    <style>
+        .outer {
+            display: grid;
+            place-items: center;
+            width: 100%;
+            height: 97vh;
+        }
+        #head1{
+            font-family: 'Courier New', Courier, monospace;
+            color:blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <h1 id="head1">Character Calculator</h1>
+        <textarea cols="30" rows="10" id="chars" onkeyup="countChars(this)"></textarea><br>
+        <span id="count"></span>
+    </div>
+    <script type="text/javascript">
+        var char = document.getElementById("chars");
+        function countChars(len) {
+            len = char.value.length;
+            if (len <= 140) {
+                document.getElementById("count").style.color = "green";
+                document.getElementById("count").innerHTML = len + " characters";
+            } else {
+                document.getElementById("count").style.color = "red";
+                document.getElementById("count").innerHTML = "You Exceeded the limit of 140 characters";
+            }
+        }
+    </script>
+</body>
+
+</html>
