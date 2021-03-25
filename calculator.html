@@ -1,129 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Calculator</title>
-    <style media="screen">
-      @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
-      body{
-        font-family: 'IBM Plex Mono', monospace !important;
+
+<head>
+  <meta charset="utf-8" />
+  <title>Calculator</title>
+  <style media="screen">
+    @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap");
+
+    body {
+      font-family: "IBM Plex Mono", monospace !important;
+      height: 90vh;
+    }
+
+    #display {
+      background-color: #9a9c5a;
+      height: 60px !important;
+      font-size: 22px;
+      color: black;
+      border: 2px solid #c4c4bb;
+    }
+
+    @media (min-width:320px) and (max-width:580px) {
+      body {
+        width: 100%;
+        height: 100%;
+        position: fixed;
       }
-      #display{
-        background-color:#9a9c5a;
-        height:60px !important;
-        font-size:22px;
-        color:black;
-        border:2px solid #c4c4bb;
-      }
-      @media (min-width:320px) and (max-width:580px) {
-          body {
-            width: 100%;
-            height: 100%;
-            position: fixed;
-          }
-        }
-    </style>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  </head>
-  <body onload="disable()">
-    <div class="container-fluid mt-5">
-        <div class="row justify-content-center align-items-center calc">
-          <div class="col-md-6 col-sm-12">
-            <div class="card bg-dark w-75">
-              <div class="card-body text-center">
-                <form name="form" action="" method="post">
-                  <div class="row">
-                    <div class="col">
-                      <input type="text" class="form-control h-50" inputmode="numeric" id="display" name="display" placeholder="0"><br>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-3 col-sm-3">
-                      <input type="button" class="btn btn-danger btn-block" name="clear" onclick="document.getElementById('display').value='';" value="C"/>
-                    </div>
-                    <div class="col-md-3 col-sm-3">
-                      <input type="button" class="btn btn-danger btn-block" name="delete" onclick="var str=document.getElementById('display').value;document.getElementById('display').value=str.substring(0,str.length-1);" value="DEL"/>
-                    </div>
-                    <div class="col-md-3 col-sm-3">
-                      <input type="button" class="btn btn-secondary btn-block" name="modulo" onclick="calc(modulo.value)" value="%"/>
-                    </div>
-                    <div class="col-md-3 col-sm-3">
-                      <input type="button" class="btn btn-secondary btn-block" name="divide" onclick="calc(divide.value)" value="/"/>
-                    </div>
-                  </div>
-                  <div class="row mt-2">
-                    <div class="col-md-3 col-sm-3">
-                      <input type="button" class="btn btn-light btn-block" name="seven" onclick="calc(seven.value)" value="7"/>
-                    </div>
-                    <div class="col-md-3  col-sm-3">
-                      <input type="button" class="btn btn-light btn-block" name="eight" onclick="calc(eight.value)" value="8"/>
-                    </div>
-                    <div class="col-md-3 col-sm-3">
-                      <input type="button" class="btn btn-light btn-block" name="nine" onclick="calc(nine.value)" value="9"/>
-                    </div>
-                    <div class="col-md-3 col-sm-3">
+    }
+  </style>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+</head>
 
-                      <input type="button" class="btn btn-secondary btn-block" name="multiply" onclick="calc(multiply.value)" value="*"/>
-                    </div>
-                  </div>
-                  <div class="row mt-2">
-                    <div class="col-md-3 col-sm-3">
-                      <input type="button" class="btn btn-light btn-block" name="four" onclick="calc(four.value)" value="4"/>
-                    </div>
-                    <div class="col-md-3 col-sm-3">
-                      <input type="button" class="btn btn-light btn-block" name="five" onclick="calc(five.value)" value="5"/>
-                    </div>
-                    <div class="col-md-3 col-sm-3">
-                      <input type="button" class="btn btn-light btn-block" name="six" onclick="calc(six.value)" value="6"/>
-                    </div>
-                    <div class="col-md-3 col-sm-3">
-
-                      <input type="button" class="btn btn-secondary btn-block" name="minus" onclick="calc(minus.value)" value="-"/>
-                    </div>
-                  </div>
-                  <div class="row mt-2">
-                    <div class="col-md-3 col-sm-3">
-                      <input type="button" class="btn btn-light btn-block" name="one" onclick="calc(one.value)" value="1"/>
-                    </div>
-                    <div class="col-md-3 col-sm-3">
-                      <input type="button" class="btn btn-light btn-block" name="two" onclick="calc(two.value)" value="2"/>
-                    </div>
-                    <div class="col-md-3 col-sm-3">
-                      <input type="button" class="btn btn-light btn-block" name="three" onclick="calc(three.value)" value="3"/>
-                    </div>
-                    <div class="col-md-3 col-sm-3">
-
-                      <input type="button" class="btn btn-secondary btn-block" name="plus" onclick="calc(plus.value)" value="+"/>
-                    </div>
-                  </div>
-                  <div class="row mt-2">
-                    <div class="col-md-3 col-sm-3">
-                      <input type="button" class="btn btn-light btn-block" name="dot" onclick="calc(dot.value)" value="."/>
-                    </div>
-                    <div class="col-md-3 col-sm-3">
-                      <input type="button" class="btn btn-light btn-block" name="zero" onclick="calc(zero.value)" value="0"/>
-                    </div>
-                    <div class="col-md-6 col-sm-6">
-                      <input type="button" class="btn btn-secondary btn-block" name="equal" onclick="display.value=eval(display.value)" value="="/>
-                    </div>
-                  </div>
-                </form>
+<body onload="disable()">
+  <div class="container-fluid mt-5">
+    <div class="row justify-content-center align-items-center calc">
+      <div class="col-6">
+        <div class="card bg-dark w-75">
+          <div class="card-body text-center">
+            <form name="form" action="" method="post">
+              <div class="row">
+                <div class="col">
+                  <input type="text" class="form-control h-50" inputmode="numeric" id="display" name="display"
+                    placeholder="0" /><br />
+                </div>
               </div>
-            </div>
+              <div class="row">
+                <div class="col-3">
+                  <input type="button" class="btn btn-danger btn-block" name="clear"
+                    onclick="document.getElementById('display').value='';" value="C" />
+                </div>
+                <div class="col-3">
+                  <input type="button" class="btn btn-danger btn-block" name="delete"
+                    onclick="var str=document.getElementById('display').value;document.getElementById('display').value=str.substring(0,str.length-1);"
+                    value="DEL" />
+                </div>
+                <div class="col-3">
+                  <input type="button" class="btn btn-secondary btn-block" name="modulo" onclick="calc(modulo.value)"
+                    value="%" />
+                </div>
+                <div class="col-3">
+                  <input type="button" class="btn btn-secondary btn-block" name="divide" onclick="calc(divide.value)"
+                    value="/" />
+                </div>
+              </div>
+              <div class="row mt-2">
+                <div class="col-3">
+                  <input type="button" class="btn btn-light btn-block" name="seven" onclick="calc(seven.value)"
+                    value="7" />
+                </div>
+                <div class="col-3">
+                  <input type="button" class="btn btn-light btn-block" name="eight" onclick="calc(eight.value)"
+                    value="8" />
+                </div>
+                <div class="col-3">
+                  <input type="button" class="btn btn-light btn-block" name="nine" onclick="calc(nine.value)"
+                    value="9" />
+                </div>
+                <div class="col-3">
+                  <input type="button" class="btn btn-secondary btn-block" name="multiply"
+                    onclick="calc(multiply.value)" value="*" />
+                </div>
+              </div>
+              <div class="row mt-2">
+                <div class="col-3">
+                  <input type="button" class="btn btn-light btn-block" name="four" onclick="calc(four.value)"
+                    value="4" />
+                </div>
+                <div class="col-3">
+                  <input type="button" class="btn btn-light btn-block" name="five" onclick="calc(five.value)"
+                    value="5" />
+                </div>
+                <div class="col-3">
+                  <input type="button" class="btn btn-light btn-block" name="six" onclick="calc(six.value)" value="6" />
+                </div>
+                <div class="col-3">
+                  <input type="button" class="btn btn-secondary btn-block" name="minus" onclick="calc(minus.value)"
+                    value="-" />
+                </div>
+              </div>
+              <div class="row mt-2">
+                <div class="col-3">
+                  <input type="button" class="btn btn-light btn-block" name="one" onclick="calc(one.value)" value="1" />
+                </div>
+                <div class="col-3">
+                  <input type="button" class="btn btn-light btn-block" name="two" onclick="calc(two.value)" value="2" />
+                </div>
+                <div class="col-3">
+                  <input type="button" class="btn btn-light btn-block" name="three" onclick="calc(three.value)"
+                    value="3" />
+                </div>
+                <div class="col-3">
+                  <input type="button" class="btn btn-secondary btn-block" name="plus" onclick="calc(plus.value)"
+                    value="+" />
+                </div>
+              </div>
+              <div class="row mt-2">
+                <div class="col-3">
+                  <input type="button" class="btn btn-light btn-block" name="dot" onclick="calc(dot.value)" value="." />
+                </div>
+                <div class="col-3">
+                  <input type="button" class="btn btn-light btn-block" name="zero" onclick="calc(zero.value)"
+                    value="0" />
+                </div>
+                <div class="col-6 col-sm-6">
+                  <input type="button" class="btn btn-secondary btn-block" name="equal"
+                    onclick="display.value=eval(display.value)" value="=" />
+                </div>
+              </div>
+            </form>
           </div>
         </div>
+      </div>
     </div>
+  </div>
 
-    <script type="text/javascript">
-      var el=document.getElementById("display").value;
-      function calc(operands){
-        form.display.value+=operands;
-      }
-      function disable(){
-        document.onkeydown=function(e){
-          return false;
-        }
-      }
-    </script>
-  </body>
+  <script type="text/javascript">
+    var el = document.getElementById("display").value;
+    function calc(operands) {
+      form.display.value += operands;
+    }
+    function disable() {
+      document.onkeydown = function (e) {
+        return false;
+      };
+    }
+  </script>
+</body>
+
 </html>
